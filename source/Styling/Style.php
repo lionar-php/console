@@ -3,6 +3,7 @@
 namespace Console\Styling;
 
 use Accessibility\Readable;
+use InvalidArgumentException;
 
 class Style
 {
@@ -14,6 +15,9 @@ class Style
 
 	public function __construct ( string $name, string $definitions )
 	{
+		if ( empty ( $name ) )
+			throw new InvalidArgumentException ( 'The name of a style may not empty.' );
+		
 		$this->name = strtolower ( $name );
 		
 		foreach ( $this->interpret ( $definitions ) as $definition )

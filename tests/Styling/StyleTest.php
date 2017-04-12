@@ -12,9 +12,10 @@ class StyleTest extends TestCase
 	| Style Name
 	|--------------------------------------------------------------------------
 	| The style name is the main identifier of the style. The name is stored
-	| lowercased.
+	| lowercased. The name of a style may not empty.
 	| 
 	*/
+
 	/**
 	 * @test
 	 * @dataProvider names
@@ -23,6 +24,15 @@ class StyleTest extends TestCase
 	{
 		$style = new Style ( $name, 'definitions' );
 		assertThat ( $style->name, is ( identicalTo ( strtolower ( $name ) ) ) );
+	}
+
+	/**
+	 * @test
+	 * @expectedException InvalidArgumentException
+	 */
+	public function __construct_withEmptyStringForName_throwsException ( )
+	{
+		$style = new Style ( '', 'definitions' );
 	}
 
 	/*
