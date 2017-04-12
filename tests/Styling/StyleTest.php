@@ -7,6 +7,14 @@ use Console\Tests\TestCase;
 
 class StyleTest extends TestCase
 {
+	/*
+	|--------------------------------------------------------------------------
+	| Style Name
+	|--------------------------------------------------------------------------
+	| The style name is the main identifier of the style. The name is stored
+	| lowercased.
+	| 
+	*/
 	/**
 	 * @test
 	 * @dataProvider names
@@ -16,6 +24,18 @@ class StyleTest extends TestCase
 		$style = new Style ( $name, 'definitions' );
 		assertThat ( $style->name, is ( identicalTo ( strtolower ( $name ) ) ) );
 	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| Style definitions
+	|--------------------------------------------------------------------------
+	| Definitions is a string which we separate by comma and the word 'and'. This
+	| way we end up with an array of definitions stored on the style. The definitions
+	| are stored lowercased.
+	|
+	| Example: 'Bold, italics and coloured red' -> [ 'bold', 'italics', 'coloured red' ]
+	| 
+	*/
 
 	/**
 	 * @test
@@ -29,9 +49,9 @@ class StyleTest extends TestCase
 
 	/*
 	|--------------------------------------------------------------------------
-	| Tag
+	| Style tags
 	|--------------------------------------------------------------------------
-	| Tagging provide the ability to have multiple names refer to the same style.
+	| Tagging provides the ability to have multiple names refer to the same style.
 	| This means that if i tag a style called 'emphasis' with 'intensified' i can
 	| refer to the 'emphasis' style via the tag name 'intensified'. All tag names
 	| are set in lowercase on the style.
