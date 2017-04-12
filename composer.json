@@ -1,0 +1,36 @@
+{
+    "name": "lionar/console",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aron Wouters",
+            "email": "lionar@mail.com"
+        }
+    ],
+    "require": {
+    	"hamcrest/hamcrest-php": "*",
+    	"lionar/support": "*",
+    	"mockery/mockery": "dev-master",
+    	"phpunit/phpunit": "@stable",
+    	"symfony/console": "*"
+    },
+    "autoload": {
+        "psr-4": {
+        	"Console\\": "source"
+        },
+        "files": [
+        	"functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+        	"Console\\Styling\\Tests\\": "tests/Styling",
+        	"Console\\Tests\\": "tests"
+        },
+        "files": [
+			"vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
+		]
+    },
+    "minimum-stability": "dev"
+}
