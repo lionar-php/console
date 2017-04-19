@@ -25,6 +25,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+        	"Console\\Styling\\Exceptions\\Tests\\": "tests/Styling/Exceptions",
         	"Console\\Styling\\Tests\\": "tests/Styling",
         	"Console\\Tests\\": "tests"
         },

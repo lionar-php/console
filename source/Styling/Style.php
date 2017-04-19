@@ -11,25 +11,14 @@ class Style
 
 	private $name = '';
 	private $definitions = [ ];
-	private $tags = [ ];
 
 	public function __construct ( string $name, string $definitions )
 	{
-		if ( empty ( $name ) )
-			throw new InvalidArgumentException ( 'The name of a style may not empty.' );
-		
+		$this->validate ( $name, $definitions );		
 		$this->name = strtolower ( $name );
-		
+
 		foreach ( $this->interpret ( $definitions ) as $definition )
 			$this->add ( $definition );
-	}
-
-	public function tag ( string $tag )
-	{
-		$tag = strtolower ( trim ( $tag ) );
-
-		if ( ! in_array ( $tag, $this->tags ) )
-			$this->tags [ ] = $tag;
 	}
 
 	private function add ( string $definition )
@@ -43,5 +32,14 @@ class Style
 	private function interpret ( string $definitions )
 	{
 		return preg_split ( '/and|,/', $definitions );
+	}
+
+	private function validate ( $name, $definitions )
+	{
+		if ( empty ( $name ) )
+			throw new InvalidArgumentException ( 'The name of a style may not be empty' );
+		
+		if ( empty ( $definitions ) )
+			throw new InvalidArgumentException ( 'The definitions of a style may not be empty.' );
 	}
 }

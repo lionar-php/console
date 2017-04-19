@@ -11,20 +11,10 @@ class StyleTest extends TestCase
 	|--------------------------------------------------------------------------
 	| Style Name
 	|--------------------------------------------------------------------------
-	| The style name is the main identifier of the style. The name is stored
+	| The style name is the identifier of the style. The name is stored
 	| lowercased. The name of a style may not empty.
 	| 
 	*/
-
-	/**
-	 * @test
-	 * @dataProvider names
-	 */
-	public function __construct_withStringForName_setsNameOnStyle ( string $name )
-	{
-		$style = new Style ( $name, 'definitions' );
-		assertThat ( $style->name, is ( identicalTo ( strtolower ( $name ) ) ) );
-	}
 
 	/**
 	 * @test
@@ -32,7 +22,17 @@ class StyleTest extends TestCase
 	 */
 	public function __construct_withEmptyStringForName_throwsException ( )
 	{
-		$style = new Style ( '', 'definitions' );
+		$style = new Style ( '', 'Mock definitions' );
+	}
+
+	/**
+	 * @test
+	 * @dataProvider names
+	 */
+	public function __construct_withStringForName_setsNameAsLowerCaseOnStyle ( string $name )
+	{
+		$style = new Style ( $name, 'Mock definitions' );
+		assertThat ( $style->name, is ( identicalTo ( strtolower ( $name ) ) ) );
 	}
 
 	/*
@@ -41,11 +41,20 @@ class StyleTest extends TestCase
 	|--------------------------------------------------------------------------
 	| Definitions is a string which we separate by comma and the word 'and'. This
 	| way we end up with an array of definitions stored on the style. The definitions
-	| are stored lowercased.
+	| are stored lowercased. The definitions string may not be empty.
 	|
 	| Example: 'Bold, italics and coloured red' -> [ 'bold', 'italics', 'coloured red' ]
 	| 
 	*/
+
+	/**
+	 * @test
+	 * @expectedException InvalidArgumentException
+	 */
+	public function __construct_withEmptyStringForDefinitions_throwsException ( )
+	{
+		$style = new Style ( 'mock name', '' );
+	}
 
 	/**
 	 * @test
@@ -57,28 +66,6 @@ class StyleTest extends TestCase
 		assertThat ( $style->definitions, is ( identicalTo ( $expectation ) ) );
 	}
 
-	/*
-	|--------------------------------------------------------------------------
-	| Style tags
-	|--------------------------------------------------------------------------
-	| Tagging provides the ability to have multiple names refer to the same style.
-	| This means that if i tag a style called 'emphasis' with 'intensified' i can
-	| refer to the 'emphasis' style via the tag name 'intensified'. All tag names
-	| are set in lowercase on the style.
-	| 
-	*/
-
-	/**
-	 * @test
-	 * @dataProvider tags
-	 */
-	public function tag_withStringForTag_setsTagOnStyle ( string $tag, array $expectation )
-	{
-		$style = new Style ( 'emphasis', 'mock definitions' );
-		$style->tag ( $tag );
-		$style->tag ( $tag );
-		assertThat ( $style->tags, is ( identicalTo ( $expectation ) ) );
-	}
 
 	/*
 	|--------------------------------------------------------------------------
@@ -110,18 +97,6 @@ class StyleTest extends TestCase
 			[ 'bold, BOLD and BOld', [ 'bold' ] ],
 			[ 'Bold, ItAlIcS and ColoUred rEd', [ 'bold', 'italics', 'coloured red' ] ],
 			[ 'bold,  italics  and      coloured red', [ 'bold', 'italics', 'coloured red' ] ]
-		];
-	}
-
-	public function tags ( )
-	{
-		return
-		[
-			[ 'intensified', [ 'intensified' ] ],
-			[ 'emphasised', [ 'emphasised' ] ],
-			[ 'Emphasised', [ 'emphasised' ] ],
-			[ 'InTenSIfIed', [ 'intensified' ] ],
-			[ '   InTenSIfIed  ', [ 'intensified' ] ],
 		];
 	}
 }

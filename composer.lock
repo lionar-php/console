@@ -161,13 +161,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
-                "reference": "fdfb1aa6085bde5f2d935e2ed8ff37266cce5ed2"
+                "url": "https://github.com/mockery/mockery.git",
+                "reference": "e3a85ae983b481d9cc680ca8e1a03879772353f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/fdfb1aa6085bde5f2d935e2ed8ff37266cce5ed2",
-                "reference": "fdfb1aa6085bde5f2d935e2ed8ff37266cce5ed2",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/e3a85ae983b481d9cc680ca8e1a03879772353f8",
+                "reference": "e3a85ae983b481d9cc680ca8e1a03879772353f8",
                 "shasum": ""
             },
             "require": {
@@ -206,7 +206,7 @@
                 }
             ],
             "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succinct API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
-            "homepage": "http://github.com/padraic/mockery",
+            "homepage": "http://github.com/mockery/mockery",
             "keywords": [
                 "BDD",
                 "TDD",
@@ -219,7 +219,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-04-07 09:06:48"
+            "time": "2017-04-15 07:20:44"
         },
         {
             "name": "myclabs/deep-copy",
@@ -580,12 +580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc"
+                "reference": "1afe83220e40438c219b81a93c4c44cd8a1c63c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
-                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1afe83220e40438c219b81a93c4c44cd8a1c63c9",
+                "reference": "1afe83220e40438c219b81a93c4c44cd8a1c63c9",
                 "shasum": ""
             },
             "require": {
@@ -604,7 +604,7 @@
                 "phpunit/phpunit": "^6.0"
             },
             "suggest": {
-                "ext-xdebug": "^2.5.1"
+                "ext-xdebug": "^2.5.3"
             },
             "type": "library",
             "extra": {
@@ -635,7 +635,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-12 07:59:32"
+            "time": "2017-04-18 12:28:35"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1578,12 +1578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "77a5b2dba81ad2f49ba6d6817c878c24ef73e71f"
+                "reference": "386c1d9d245e21e9df5b0ead3e46a877e44fe247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/77a5b2dba81ad2f49ba6d6817c878c24ef73e71f",
-                "reference": "77a5b2dba81ad2f49ba6d6817c878c24ef73e71f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/386c1d9d245e21e9df5b0ead3e46a877e44fe247",
+                "reference": "386c1d9d245e21e9df5b0ead3e46a877e44fe247",
                 "shasum": ""
             },
             "require": {
@@ -1638,7 +1638,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12 14:14:56"
+            "time": "2017-04-13 16:59:03"
         },
         {
             "name": "symfony/debug",
